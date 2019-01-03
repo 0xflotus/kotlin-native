@@ -668,20 +668,3 @@ fun IrClass.defaultOrNullableType(hasQuestionMark: Boolean) =
 
 fun IrFunction.isRestrictedSuspendFunction(languageVersionSettings: LanguageVersionSettings): Boolean =
         this.descriptor.extensionReceiverParameter?.type?.isRestrictsSuspensionReceiver(languageVersionSettings) == true
-/*
-fun IrDeclaration.hasInlineFunctions(): Boolean {
-    var hasInlineFunctions = false
-    acceptVoid(object : IrElementVisitorVoid {
-        override fun visitElement(element: IrElement) {
-            element.acceptChildrenVoid(this)
-        }
-
-        override fun visitFunction(function: IrFunction) {
-            function.acceptChildrenVoid(this)
-            hasInlineFunctions = hasInlineFunctions || function.isInline
-        }
-    })
-
-    return hasInlineFunctions
-}
-*/
